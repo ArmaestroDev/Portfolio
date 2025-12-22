@@ -1,0 +1,27 @@
+.footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: auto;
+    /* Push to bottom */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.icon {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.2s;
+}
+
+.icon:hover {
+    color: var(--primary-color);
+}
