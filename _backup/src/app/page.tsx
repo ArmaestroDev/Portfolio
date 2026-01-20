@@ -1,14 +1,46 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
 import styles from './page.module.css';
 
 export default function Home() {
+  const titleRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!titleRef.current) return;
+
+      const rect = titleRef.current.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+
+      // Calculate angle from center of title to mouse
+      // Normalize coordinates based on aspect ratio to ensure uniform rotation feel
+      const normalizedX = (e.clientX - centerX) / (rect.width / 2);
+      const normalizedY = (e.clientY - centerY) / (rect.height / 2);
+
+      const angleRad = Math.atan2(normalizedY, normalizedX);
+      const angleDeg = angleRad * (180 / Math.PI) + 90; // Add 90 to start from top/correct orientation if needed
+
+      titleRef.current.style.setProperty('--gradient-angle', `${angleDeg}deg`);
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   return (
     <div className={styles.main}>
       <section className={styles.hero}>
         <div className={styles.heroContent}>
-          <h1 className={styles.title}>
-            Hallo, ich bin Armando Monte
+          <h1
+            ref={titleRef}
+            className={styles.title}
+            style={{ '--gradient-angle': '90deg' } as React.CSSProperties}
+          >
+            Portfolio von Armando Monte
           </h1>
           <p className={styles.subtitle}>
             Leidenschaftlicher Softwareentwickler und Informatik-Student an der Uni Potsdam.

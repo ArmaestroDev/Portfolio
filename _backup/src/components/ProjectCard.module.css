@@ -9,12 +9,9 @@
 }
 
 .card:hover {
-    /*transform: translateY(-5px);
+    transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    border-color: var(--primary-color);*/
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(187, 134, 252, 0.4);
-    opacity: 0.9;
+    border-color: var(--primary-color);
 }
 
 .imageContainer {

@@ -1,0 +1,148 @@
+.container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    min-height: 80vh; /* Adjust based on layout */
+    animation: fadeIn 0.5s ease-out;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.titleIcon {
+    width: 32px;
+    height: 32px;
+    color: var(--text-primary);
+}
+
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.label {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-left: 0.25rem;
+}
+
+.input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    border: none;
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.input::placeholder {
+    color: #999;
+}
+
+.input:focus {
+    outline: 2px solid var(--primary-color);
+}
+
+.textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.button {
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    border: 2px solid var(--text-primary);
+    color: var(--text-primary);
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 1rem;
+}
+
+.button:hover {
+    background: var(--text-primary);
+    color: var(--background);
+}
+
+.buttonIcon {
+    width: 20px;
+    height: 20px;
+}
+
+.button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.successMessage {
+    color: #4ade80; /* Green */
+    font-weight: 700;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.errorMessage {
+    color: #f87171; /* Red */
+    font-weight: 700;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
