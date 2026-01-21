@@ -5,16 +5,14 @@
   --marble-shadow: #d1d0c8;
   --stone-texture: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
   --sky-gradient: linear-gradient(to bottom, #87ceeb 0%, #e0f6ff 100%);
-  --column-gradient: linear-gradient(
-    90deg,
-    #e6e5e0 0%,
-    #fff 20%,
-    #e6e5e0 40%,
-    #d1d0c8 50%,
-    #e6e5e0 60%,
-    #fff 80%,
-    #e6e5e0 100%
-  );
+  --column-gradient: linear-gradient(90deg,
+      #e6e5e0 0%,
+      #fff 20%,
+      #e6e5e0 40%,
+      #d1d0c8 50%,
+      #e6e5e0 60%,
+      #fff 80%,
+      #e6e5e0 100%);
   --gold-accent: #c5a059;
   --text-dark: #2c2c2c;
 }
@@ -25,7 +23,8 @@
   flex-direction: column;
   align-items: center;
   background: var(--sky-gradient);
-  font-family: "Cinzel", "Times New Roman", serif; /* Ideally import Cinzel */
+  font-family: "Cinzel", "Times New Roman", serif;
+  /* Ideally import Cinzel */
   color: var(--text-dark);
   padding-bottom: 4rem;
   overflow-x: hidden;
@@ -41,6 +40,7 @@
   margin-top: 2rem;
   position: relative;
   z-index: 10;
+  animation: fadeIn 1s ease-out;
 }
 
 .pedimentTriangle {
@@ -64,9 +64,11 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  margin-top: 4rem; /* Push down from the pointy top */
+  margin-top: 4rem;
+  /* Push down from the pointy top */
   text-align: center;
-  width: 60%; /* constrain width to fit in triangle */
+  width: 60%;
+  /* constrain width to fit in triangle */
 }
 
 /* Decorative Frieze below triangle */
@@ -85,13 +87,11 @@
 .triglyphs {
   width: 100%;
   height: 100%;
-  background-image: repeating-linear-gradient(
-    90deg,
-    var(--marble-shadow) 0px,
-    var(--marble-shadow) 10px,
-    var(--marble-main) 10px,
-    var(--marble-main) 16px
-  );
+  background-image: repeating-linear-gradient(90deg,
+      var(--marble-shadow) 0px,
+      var(--marble-shadow) 10px,
+      var(--marble-main) 10px,
+      var(--marble-main) 16px);
   opacity: 0.5;
 }
 
@@ -163,14 +163,17 @@
   max-width: 1000px;
   background-color: transparent;
   padding: 0 1rem;
-  margin-top: -5px; /* Pull up to touch entablature */
+  margin-top: -5px;
+  /* Pull up to touch entablature */
   z-index: 5;
+  animation: fadeIn 1s ease-out;
 }
 
 .colonnade {
   display: flex;
   justify-content: space-around;
-  align-items: stretch; /* Stretch columns to fill height and reach top */
+  align-items: stretch;
+  /* Stretch columns to fill height and reach top */
   flex-wrap: wrap;
   gap: 1rem;
   min-height: 400px;
@@ -183,22 +186,26 @@
   align-items: center;
   height: 100%;
   flex: 1;
-  min-width: 100px; /* Minimum column width */
+  min-width: 100px;
+  /* Minimum column width */
 }
 
 .capital {
-  width: 110%; /* Wider than shaft */
+  width: 110%;
+  /* Wider than shaft */
   height: 25px;
   background: var(--marble-shadow);
   border-radius: 4px;
   border-bottom: 4px solid var(--marble-light);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  margin-bottom: -1px; /* Fuse with shaft */
+  margin-bottom: -1px;
+  /* Fuse with shaft */
   z-index: 1;
 }
 
 .columnShaft {
-  width: 80%; /* Shaft is thinner than capital/base */
+  width: 80%;
+  /* Shaft is thinner than capital/base */
   flex-grow: 1;
   background: var(--column-gradient);
   display: flex;
@@ -219,7 +226,8 @@
 }
 
 .base {
-  width: 120%; /* Widest part */
+  width: 120%;
+  /* Widest part */
   height: 30px;
   background: var(--marble-shadow);
   border-radius: 2px;
@@ -232,7 +240,8 @@
   font-weight: 800;
   font-size: 1.2rem;
   writing-mode: vertical-rl;
-  text-orientation: upright; /* Letters stacked upright */
+  text-orientation: upright;
+  /* Letters stacked upright */
   text-transform: uppercase;
   letter-spacing: 0.2rem;
   color: #444;
@@ -256,9 +265,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: -20px; /* Pull up to connect with columns */
+  margin-top: -20px;
+  /* Pull up to connect with columns */
   position: relative;
-  z-index: 4; /* Below Stylobate/Columns */
+  z-index: 4;
+  /* Below Stylobate/Columns */
+  animation: fadeIn 1s ease-out;
 }
 
 /* Abstract steps as resume containers */
@@ -277,24 +289,29 @@
 }
 
 .stepTop {
-  width: 1050px; /* Slightly wider than stylobate */
+  width: 1050px;
+  /* Slightly wider than stylobate */
   margin-top: 0;
   border-radius: 2px;
 }
 
 .stepMiddle {
-  width: 1100px; /* Wider than top */
+  width: 1100px;
+  /* Wider than top */
   margin-top: 0;
-  background-color: #dedcd5; /* Slightly darker */
+  background-color: #dedcd5;
+  /* Slightly darker */
   display: flex;
   justify-content: space-evenly;
   gap: 2rem;
 }
 
 .stepBottom {
-  width: 1150px; /* Widest */
+  width: 1150px;
+  /* Widest */
   margin-top: 0;
-  background-color: #cfccc4; /* Darkest step */
+  background-color: #cfccc4;
+  /* Darkest step */
   padding: 1rem;
 }
 
@@ -342,7 +359,8 @@
 /* Responsiveness */
 @media (max-width: 850px) {
   .pedimentTriangle {
-    clip-path: none; /* Remove triangle on small screens to fit content better */
+    clip-path: none;
+    /* Remove triangle on small screens to fit content better */
     background: transparent;
     box-shadow: none;
     min-height: auto;
@@ -368,7 +386,8 @@
   }
 
   .columnContainer {
-    min-width: 45%; /* 2 columns per row */
+    min-width: 45%;
+    /* 2 columns per row */
     margin-bottom: 2rem;
   }
 
@@ -388,5 +407,18 @@
 
   .entablature {
     display: none;
+  }
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

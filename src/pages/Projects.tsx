@@ -7,7 +7,7 @@ const projects = [
         id: 1,
         title: 'Kalorientracker',
         description: 'Mein bisher größtes Projekt: Eine umfassende Anwendung zum Tracken von Kalorien und Nährwerten. Entwickelt mit Kotlin, wird zu Flutter übertragen.',
-        tags: ['Kotlin', 'Android', 'Databases', 'KI-Integration'],
+        tags: ['Kotlin', 'Android', 'Datenbanken', 'KI-Integration'],
         link: 'https://github.com/ArmaestroDev/Kalorientracker',
         imageUrl: '/kalorientracker.png'
     },
