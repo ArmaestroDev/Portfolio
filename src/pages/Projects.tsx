@@ -15,7 +15,7 @@ const projects = [
         id: 2,
         title: 'Finanzplaner - Kommt Bald',
         description: 'Ein Tool zur Verwaltung persönlicher Finanzen, Einnahmen und Ausgaben.',
-        tags: ['Java', 'SQL', 'Desktop'],
+        tags: ['React Native', 'SQL', 'Desktop'],
         link: '#',
     },
     {

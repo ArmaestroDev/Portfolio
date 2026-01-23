@@ -1,424 +1,269 @@
-/* Greek Temple Theme Variables */
-:root {
-  --marble-light: #f4f4f6;
-  --marble-main: #e6e5e0;
-  --marble-shadow: #d1d0c8;
-  --stone-texture: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
-  --sky-gradient: linear-gradient(to bottom, #87ceeb 0%, #e0f6ff 100%);
-  --column-gradient: linear-gradient(90deg,
-      #e6e5e0 0%,
-      #fff 20%,
-      #e6e5e0 40%,
-      #d1d0c8 50%,
-      #e6e5e0 60%,
-      #fff 80%,
-      #e6e5e0 100%);
-  --gold-accent: #c5a059;
-  --text-dark: #2c2c2c;
-}
-
-.templeContainer {
+.main {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background: var(--sky-gradient);
-  font-family: "Cinzel", "Times New Roman", serif;
-  /* Ideally import Cinzel */
-  color: var(--text-dark);
-  padding-bottom: 4rem;
-  overflow-x: hidden;
-}
-
-/* --- PEDIMENT (ROOF) --- */
-.pedimentWrapper {
-  width: 100%;
+  padding: 4rem 2rem;
   max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero {
+  display: flex;
+  flex-direction: row;
+  /* Changed to row for side-by-side layout */
+  justify-content: space-between;
+  align-items: center;
+  min-height: 60vh;
+  gap: 3rem;
+}
+
+/* Mobile responsive for hero */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column-reverse;
+    /* Image on top or bottom on mobile */
+    text-align: center;
+    justify-content: center;
+  }
+
+  .heroContent {
+    align-items: center;
+  }
+}
+
+.heroContent {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-top: 2rem;
-  position: relative;
-  z-index: 10;
-  animation: fadeIn 1s ease-out;
-}
-
-.pedimentTriangle {
-  width: 100%;
-  max-width: 1000px;
-  min-height: 350px;
-  background-color: var(--marble-main);
-  background-image: var(--stone-texture);
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-  display: flex;
   justify-content: center;
-  align-items: flex-end;
-  padding-bottom: 2rem;
-  box-shadow: inset 0 -10px 20px rgba(0, 0, 0, 0.1);
-  position: relative;
-}
-
-/* Inner triangle area for content */
-.pedimentContent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 4rem;
-  /* Push down from the pointy top */
-  text-align: center;
-  width: 60%;
-  /* constrain width to fit in triangle */
-}
-
-/* Decorative Frieze below triangle */
-.entablature {
-  width: 100%;
-  max-width: 1000px;
-  height: 40px;
-  background-color: var(--marble-shadow);
-  border-top: 2px solid var(--gold-accent);
-  border-bottom: 2px solid var(--gold-accent);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.triglyphs {
-  width: 100%;
-  height: 100%;
-  background-image: repeating-linear-gradient(90deg,
-      var(--marble-shadow) 0px,
-      var(--marble-shadow) 10px,
-      var(--marble-main) 10px,
-      var(--marble-main) 16px);
-  opacity: 0.5;
+  align-items: flex-start;
+  gap: 1.5rem;
 }
 
 .imageContainer {
-  width: 100px;
-  height: 100px;
+  flex: 0 0 auto;
+  position: relative;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid var(--gold-accent);
-  background: white;
-  margin-bottom: 0.5rem;
+  border: 4px solid var(--primary-color);
+  box-shadow: 0 0 30px rgba(187, 134, 252, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.imageContainer:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 50px rgba(187, 134, 252, 0.6);
 }
 
 .profileImage {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
 }
 
-.titleGroup {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 2;
-}
-
 .title {
-  font-size: 2rem;
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  background: linear-gradient(var(--gradient-angle, 90deg), var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin: 0;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #2c2c2c;
-  text-shadow: 1px 1px 0px white;
 }
 
 .subtitle {
-  font-size: 1rem;
-  margin: 0.2rem 0;
-  font-weight: 600;
-  color: #444;
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0;
 }
 
 .ctaButtons {
   display: flex;
   gap: 1rem;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
 }
 
-.templeBtn {
+.primaryBtn,
+.secondaryBtn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
   text-decoration: none;
-  padding: 0.5rem 1rem;
+}
+
+.primaryBtn {
+  background: var(--primary-color);
+  color: #000;
+  border: 2px solid var(--primary-color);
+}
+
+.primaryBtn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(187, 134, 252, 0.4);
+}
+
+.secondaryBtn {
   background: transparent;
-  border: 1px solid var(--text-dark);
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 0.8rem;
-  color: var(--text-dark);
-  transition: all 0.3s ease;
+  color: var(--text-primary);
+  border: 2px solid var(--text-secondary);
 }
 
-.templeBtn:hover {
-  background: var(--text-dark);
-  color: var(--marble-light);
+.secondaryBtn:hover {
+  border-color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
 }
 
-/* --- COLONNADE (COLUMNS) --- */
-.stylobate {
-  width: 100%;
-  max-width: 1000px;
-  background-color: transparent;
-  padding: 0 1rem;
-  margin-top: -5px;
-  /* Pull up to touch entablature */
-  z-index: 5;
-  animation: fadeIn 1s ease-out;
+.section {
+  margin-top: 4rem;
 }
 
-.colonnade {
-  display: flex;
-  justify-content: space-around;
-  align-items: stretch;
-  /* Stretch columns to fill height and reach top */
-  flex-wrap: wrap;
-  gap: 1rem;
-  min-height: 400px;
-  border-bottom: 2px solid #ccc;
+.sectionTitle {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--card-bg);
+  padding-bottom: 0.5rem;
+  display: inline-block;
 }
 
-.columnContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1.5rem;
+}
+
+.skillItem {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--text-primary);
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, background 0.3s;
+}
+
+.skillItem:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--primary-color);
+}
+
+/* Timeline Styles */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20px;
   height: 100%;
-  flex: 1;
-  min-width: 100px;
-  /* Minimum column width */
+  width: 2px;
+  background: var(--card-bg);
 }
 
-.capital {
-  width: 110%;
-  /* Wider than shaft */
-  height: 25px;
-  background: var(--marble-shadow);
-  border-radius: 4px;
-  border-bottom: 4px solid var(--marble-light);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  margin-bottom: -1px;
-  /* Fuse with shaft */
+.timelineItem {
+  position: relative;
+  padding-left: 3rem;
+  margin-bottom: 3rem;
+}
+
+.timelineItem:last-child {
+  margin-bottom: 0;
+}
+
+.timelineDot {
+  position: absolute;
+  left: 11px;
+  top: 5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  border: 4px solid var(--background);
+  box-shadow: 0 0 0 2px var(--primary-color);
   z-index: 1;
 }
 
-.columnShaft {
-  width: 80%;
-  /* Shaft is thinner than capital/base */
-  flex-grow: 1;
-  background: var(--column-gradient);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 1rem 0;
-  height: 327px;
-  box-shadow:
-    inset 2px 0 5px rgba(0, 0, 0, 0.1),
-    inset -2px 0 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.columnShaft:hover {
-  transform: scaleY(1.02);
-}
-
-.base {
-  width: 120%;
-  /* Widest part */
-  height: 30px;
-  background: var(--marble-shadow);
-  border-radius: 2px;
-  border-top: 3px solid var(--marble-light);
-  margin-top: -1px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-.skillName {
-  font-weight: 800;
-  font-size: 1.2rem;
-  writing-mode: vertical-rl;
-  text-orientation: upright;
-  /* Letters stacked upright */
-  text-transform: uppercase;
-  letter-spacing: 0.2rem;
-  color: #444;
-  margin-bottom: 1rem;
-  padding-top: 1rem;
-}
-
-.skillLevel {
-  font-size: 0.7rem;
-  font-weight: 600;
-  background: rgba(255, 255, 255, 0.8);
-  padding: 2px 5px;
-  border-radius: 4px;
-  border: 1px solid #999;
-}
-
-/* --- CREPIDOMA (FOUNDATION) --- */
-.crepidoma {
-  width: 100%;
-  max-width: 1100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: -20px;
-  /* Pull up to connect with columns */
-  position: relative;
-  z-index: 4;
-  /* Below Stylobate/Columns */
-  animation: fadeIn 1s ease-out;
-}
-
-/* Abstract steps as resume containers */
-.stepTop,
-.stepMiddle,
-.stepBottom {
-  background-color: var(--marble-main);
-  background-image: var(--stone-texture);
-  border: 1px solid #bbb;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+.timelineContent {
+  background: var(--card-bg);
   padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
 }
 
-.stepTop {
-  width: 1050px;
-  /* Slightly wider than stylobate */
-  margin-top: 0;
-  border-radius: 2px;
+.timelineContent:hover {
+  transform: translateX(10px);
+  border-color: var(--primary-color);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-.stepMiddle {
-  width: 1100px;
-  /* Wider than top */
-  margin-top: 0;
-  background-color: #dedcd5;
-  /* Slightly darker */
-  display: flex;
-  justify-content: space-evenly;
-  gap: 2rem;
-}
-
-.stepBottom {
-  width: 1150px;
-  /* Widest */
-  margin-top: 0;
-  background-color: #cfccc4;
-  /* Darkest step */
-  padding: 1rem;
-}
-
-.foundationTitle {
-  font-size: 1.5rem;
+.timelineDate {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
   text-transform: uppercase;
-  margin: 0;
-  color: #555;
   letter-spacing: 1px;
 }
 
-.timelineEntry {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.date {
-  font-weight: bold;
-  color: var(--gold-accent);
-  font-size: 0.9rem;
-}
-
-.entryTitle {
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-
-.fullCvLink {
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 1.1rem;
-  transition: transform 0.2s;
-}
-
-.fullCvLink:hover {
-  transform: scale(1.05);
-  color: var(--gold-accent);
-}
-
-/* Responsiveness */
-@media (max-width: 850px) {
-  .pedimentTriangle {
-    clip-path: none;
-    /* Remove triangle on small screens to fit content better */
-    background: transparent;
-    box-shadow: none;
-    min-height: auto;
-    padding-bottom: 0;
-  }
-
-  .pedimentContent {
-    width: 100%;
-    margin-top: 1rem;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-
-  .templeContainer {
-    padding: 1rem;
-  }
-
-  .colonnade {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .columnContainer {
-    min-width: 45%;
-    /* 2 columns per row */
-    margin-bottom: 2rem;
-  }
-
-  .skillName {
-    writing-mode: horizontal-tb;
-    transform: none;
-  }
-
-  /* Stack steps */
-  .stepTop,
-  .stepMiddle,
-  .stepBottom {
-    width: 100%;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .entablature {
-    display: none;
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
   }
 }
-
 
 @keyframes fadeIn {
   from {
     opacity: 0;
     transform: translateY(20px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.heroContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.5rem;
+  animation: fadeIn 1s ease-out;
+}
+
+.imageContainer {
+  flex: 0 0 auto;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--primary-color);
+  box-shadow: 0 0 30px rgba(187, 134, 252, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  animation: fadeIn 1s ease-out 0.3s backwards;
 }
