@@ -255,7 +255,6 @@ export default function Home() {
             <div className={styles.timelineDot}></div>
             <div className={styles.timelineContent}>
               <div className={styles.timelineLogo}>
-                {/* Replace with actual University Potsdam logo */}
                 <img src="/uni-potsdam-logo.png" alt="Universität Potsdam" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
               </div>
               <div className={styles.timelineText}>
@@ -269,7 +268,6 @@ export default function Home() {
             <div className={styles.timelineDot} style={{ background: 'var(--secondary-color)', boxShadow: '0 0 0 2px var(--secondary-color)' }}></div>
             <div className={styles.timelineContent}>
               <div className={styles.timelineLogo}>
-                {/* Replace with actual Abitur/School logo */}
                 <img src="/schule-logo.jpg" alt="Schule" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
               </div>
               <div className={styles.timelineText}>
