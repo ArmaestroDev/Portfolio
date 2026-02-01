@@ -5,14 +5,13 @@ interface ProjectProps {
     description: string;
     tags: string[];
     link: string;
-    imageUrl?: string; // Optional for now
+    imageUrl?: string;
 }
 
 const ProjectCard = ({ title, description, tags, link, imageUrl }: ProjectProps) => {
     return (
         <div className={styles.card}>
             <div className={styles.imageContainer}>
-                {/* Placeholder for actual image or use next/image */}
                 {imageUrl ? (
                     <img src={imageUrl} alt={title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 ) : (
@@ -34,6 +33,26 @@ const ProjectCard = ({ title, description, tags, link, imageUrl }: ProjectProps)
                 <a href={link} target="_blank" rel="noopener noreferrer" className={styles.link}>
                     Projekt ansehen
                 </a>
+            </div>
+
+            {/* Animated background effects */}
+            <div className={styles.shine}></div>
+            <div className={styles.background}>
+                <div className={styles.tiles}>
+                    <div className={`${styles.tile} ${styles.tile1}`}></div>
+                    <div className={`${styles.tile} ${styles.tile2}`}></div>
+                    <div className={`${styles.tile} ${styles.tile3}`}></div>
+                    <div className={`${styles.tile} ${styles.tile4}`}></div>
+                    <div className={`${styles.tile} ${styles.tile5}`}></div>
+                    <div className={`${styles.tile} ${styles.tile6}`}></div>
+                    <div className={`${styles.tile} ${styles.tile7}`}></div>
+                    <div className={`${styles.tile} ${styles.tile8}`}></div>
+                    <div className={`${styles.tile} ${styles.tile9}`}></div>
+                    <div className={`${styles.tile} ${styles.tile10}`}></div>
+                </div>
+                <div className={`${styles.line} ${styles.line1}`}></div>
+                <div className={`${styles.line} ${styles.line2}`}></div>
+                <div className={`${styles.line} ${styles.line3}`}></div>
             </div>
         </div>
     );

@@ -117,7 +117,7 @@ export default function ContactPage() {
                             name="message"
                             value={formData.message}
                             onChange={handleChange}
-                            placeholder="Hier ihre Nachricht eingeben" 
+                            placeholder="Hier Ihre Nachricht eingeben" 
                             className={`${styles.input} ${styles.textarea}`} 
                             rows={4}
                             required
